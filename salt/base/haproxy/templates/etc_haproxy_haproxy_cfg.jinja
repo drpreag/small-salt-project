@@ -17,6 +17,6 @@ frontend www
 backend nginx_pool
     balance roundrobin
     mode tcp
-    {% for server, addr in salt['mine.get']('G@role:core and G@env:' ~ env, 'internal_ip', expr_form='compound').items() -%}
+    {% for server, addr in salt['mine.get']('G@role:core').items() -%}
     server {{ server }} {{ addr }}:80 check
     {% endfor -%}
