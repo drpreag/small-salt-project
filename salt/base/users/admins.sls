@@ -1,4 +1,5 @@
 # /srv/salt/base/users/admins.sls
+
 {% for user, args in salt['pillar.get']('adminusers', {}).items() %}
 {{ user }}:
 

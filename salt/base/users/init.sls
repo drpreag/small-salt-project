@@ -46,7 +46,7 @@
 
 {% for user, args in salt['pillar.get']('revokedusers', {}).items() %}
 {{user}}:
-  user.absent: 
+  user.absent:
     - purge: True
     - force: True
   group.absent: []

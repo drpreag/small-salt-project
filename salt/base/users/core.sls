@@ -1,6 +1,5 @@
 # /srv/salt/base/users/core.sls
 
-{#  for user, args in salt['pillar.get']('coreusers', {}).items() #}
 {% for user, args in pillar.get('coreusers', {}).items() %}
 {{ user }}:
   group.present:
