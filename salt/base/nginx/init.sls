@@ -20,7 +20,7 @@ nginx:
     - group: root
     - dir_mode: 664
     - require:
-      - user: {{ user }}
+      - service:  nginx
 
 /etc/nginx/sites-enabled:
   file.directory:
@@ -28,7 +28,7 @@ nginx:
     - group: root
     - dir_mode: 664
     - require:
-      - user: {{ user }}
+      - service:  nginx
 
 /etc/nginx/sites-available/default:
   file.managed:
