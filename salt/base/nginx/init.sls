@@ -19,8 +19,6 @@ nginx:
     - user: root
     - group: root
     - dir_mode: 664
-    - require:
-      - service:  nginx
 
 /etc/nginx/sites-enabled:
   file.directory:
