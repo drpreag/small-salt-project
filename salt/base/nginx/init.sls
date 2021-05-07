@@ -19,6 +19,8 @@ nginx:
     - user: root
     - group: root
     - dir_mode: 664
+    - require:
+      - pkg: nginx
 
 /etc/nginx/sites-enabled:
   file.directory:
@@ -26,8 +28,7 @@ nginx:
     - group: root
     - dir_mode: 664
     - require:
-      - service:  nginx
-      - file: /etc/nginx/sites-available
+      - pkg: nginx
 
 /etc/nginx/sites-available/default:
   file.managed:
