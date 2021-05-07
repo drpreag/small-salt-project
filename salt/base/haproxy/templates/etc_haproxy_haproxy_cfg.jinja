@@ -1,9 +1,9 @@
-
+{%- set env = salt['grains.get']('env') -%}
 global
     log /dev/log    local0
     log /dev/log    local1 notice
-    chroot /var/lib/haproxy
-    user        haproxy
+    chroot  /var/lib/haproxy
+    user    haproxy
     group	haproxy
 
 defaults
@@ -16,6 +16,6 @@ frontend www
 
 backend nginx_pool
     balance roundrobin
-    {% for server, addr in salt['mine.get']('G@role:core').items() -%}
+    {% for server, addr in salt['mine.get']('G@role:core and G@env:' ~ env, 'internal_ip', expr_form='compound').items() -%}
     server {{ server }} {{ addr }}:80 check
     {% endfor -%}
