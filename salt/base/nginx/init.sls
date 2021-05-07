@@ -2,6 +2,7 @@ nginx:
   pkg:
     - installed
   service.running:
+    - enable: True
     - watch:
       - pkg: nginx
       - file: /etc/nginx/nginx.conf
