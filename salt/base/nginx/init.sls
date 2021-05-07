@@ -14,6 +14,22 @@ nginx:
     - group: root
     - mode: 640
 
+/etc/nginx/sites-available:
+  file.directory:
+    - user: root
+    - group: root
+    - dir_mode: 664
+    - require:
+      - user: {{ user }}
+
+/etc/nginx/sites-enabled:
+  file.directory:
+    - user: root
+    - group: root
+    - dir_mode: 664
+    - require:
+      - user: {{ user }}
+
 /etc/nginx/sites-available/default:
   file.managed:
     - source: salt://nginx/templates/etc_nginx_sites_available_default.jinja
