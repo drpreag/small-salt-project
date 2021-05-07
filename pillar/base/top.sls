@@ -11,7 +11,6 @@ base:
   'role:core':
     - match: grain
     - users.core
-    #- nginx
 
   'role:lb':
     - match: grain

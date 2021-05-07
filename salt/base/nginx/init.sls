@@ -51,8 +51,8 @@ nginx:
   file.managed:
     - source: salt://nginx/templates/usr_share_nginx_html_index_html.jinja
     - template: jinja
-    - user: root
-    - group: root
+    - user: nginx
+    - group: nginx
     - mode: 644
 
 

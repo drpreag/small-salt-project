@@ -13,3 +13,4 @@ base:
   'role:lb':
     - match: grain
     - users.lb
+    - haproxy
