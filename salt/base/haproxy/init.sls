@@ -7,8 +7,6 @@ haproxy:
       - pkg: haproxy
       - file: /etc/haproxy/haproxy.cfg
       - file: /etc/default/haproxy
-    - require:
-      - user: haproxy
 
 /etc/haproxy/haproxy.cfg:
   file.managed:

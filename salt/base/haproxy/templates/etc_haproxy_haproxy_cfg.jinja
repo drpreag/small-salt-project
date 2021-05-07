@@ -1,4 +1,4 @@
-{%- set env = salt['grains.get']('env') -%}
+
 global
     log /dev/log    local0
     log /dev/log    local1 notice
@@ -16,7 +16,6 @@ frontend www
 
 backend nginx_pool
     balance roundrobin
-    mode tcp
     {% for server, addr in salt['mine.get']('G@role:core').items() -%}
     server {{ server }} {{ addr }}:80 check
     {% endfor -%}
