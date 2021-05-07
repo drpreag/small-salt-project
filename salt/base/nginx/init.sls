@@ -29,6 +29,7 @@ nginx:
     - dir_mode: 664
     - require:
       - service:  nginx
+      - file: /etc/nginx/sites-available
 
 /etc/nginx/sites-available/default:
   file.managed:
@@ -37,6 +38,8 @@ nginx:
     - user: root
     - group: root
     - mode: 640
+    - require:
+      - file: /etc/nginx/sites-available
 
 /etc/nginx/sites-enabled/default:
   file.symlink:
